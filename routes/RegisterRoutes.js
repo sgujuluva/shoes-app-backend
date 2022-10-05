@@ -18,7 +18,7 @@ router.post("/create", async(req,res) => {
    
 })
 
-//getting new user
+//getting all user
 router.get("/getusers", async(req,res) => {
     try{
         const getUsers = await User.find();
@@ -27,6 +27,15 @@ router.get("/getusers", async(req,res) => {
         return res.status(500).json(error.message)
     }
    
+})
+
+//getting user by id
+
+router.get("/users/byid/:id", async(req,res) => {
+
+    const getUserById = await User.findById(req.params.id)
+
+    return res.status(200).json(getUserById)
 })
 
 export default router
