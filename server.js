@@ -1,6 +1,7 @@
 import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
+import userRoutes from "./routes/RegisterRoutes.js"
 
 dotenv.config();
 
@@ -18,6 +19,9 @@ mongoose
     console.log(error.message);
     console.log("🤨");
   });
+
+//registering routes
+app.use("/api/users", userRoutes)
 
 app.listen(process.env.PORT || 4050, () => {
     console.log(`Server is running on PORT `)
