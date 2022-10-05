@@ -23,6 +23,6 @@ mongoose
 //registering routes
 app.use("/api/users", userRoutes)
 
-app.listen(process.env.PORT || 4050, () => {
+app.listen(process.env.PORT || 6050, () => {
     console.log(`Server is running on PORT `)
 })
