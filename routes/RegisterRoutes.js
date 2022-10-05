@@ -3,6 +3,7 @@ import User from "../models/RegisterModel.js"
 
 const router = express.Router();
 
+//creating new user
 router.post("/create", async(req,res) => {
     try{
         const createdUser = await User.create({
@@ -11,6 +12,17 @@ router.post("/create", async(req,res) => {
             password:req.body.password
         })
         return res.status(200).json(createdUser)
+    }catch(error){
+        return res.status(500).json(error.message)
+    }
+   
+})
+
+//getting new user
+router.get("/getusers", async(req,res) => {
+    try{
+        const getUsers = await User.find();
+        return res.status(200).json(getUsers)
     }catch(error){
         return res.status(500).json(error.message)
     }
