@@ -7,7 +7,7 @@ const router = express.Router();
 //post
 router.post("/create", async(req,res) => {
     const createOrder = await Order.create({
-        productName: req.body. productName,
+        orderDescription: req.body.orderDescription,
         totalPrice: req.body.totalPrice,
         user:req.body.userId //ref from userdoc
     })
