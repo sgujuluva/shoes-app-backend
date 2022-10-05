@@ -12,6 +12,11 @@ router.get("/", async(req,res) => {
 })
 
 //get orders by userId
+router.get("/byuser/:userid", async(req,res) => {
+
+    const getOrdersByUserId = await Order.find({type:req.params.userid}) // userid from client
+    return res.status(200).json(getOrdersByUserId)
+})
 
 //post
 router.post("/create", async(req,res) => {
